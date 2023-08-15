@@ -10,8 +10,15 @@
     <Grid Width="640" Height="480">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Button Style="{StaticResource ButtonGray}" Margin="0 0 0 10">Button 1</Button>
-            <Button Style="{StaticResource ButtonBlue}">Button 1</Button>
-        </StackPanel>
+            <Button Style="{StaticResource ButtonBlue}">ButtonBlue</Button>
+            <Button Style="{StaticResource ButtonDyn}">ButtonDyn</Button>
+            <Button Style="{StaticResource ButtonDyn}"
+                    Background="{StaticResource OrangeBrush}"
+                    local:Brushers.HoverBrush="{StaticResource OrangeHoverBrush}"
+                    local:Brushers.ActiveBrush="{StaticResource OrangeActiveBrush}">ByttonDyn orange</Button>
+            <Button Style="{StaticResource ButtonOrangeDyn}">ButtonOrangeDyn</Button>
+
+            </StackPanel>
     </Grid>
     </Viewbox>
 </Window>

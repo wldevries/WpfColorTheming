@@ -23,7 +23,6 @@ namespace WpfColorTheming
         public MainWindow()
         {
             InitializeComponent();
-            string a = "text a";
         }
     }
 }
