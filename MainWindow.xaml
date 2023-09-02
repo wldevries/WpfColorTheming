@@ -3,57 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfColorTheming"
+        xmlns:local="clr-namespace:WpfColorTheming" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         FontSize="18"
         Title="MainWindow" Height="450" Width="800">
-    <Viewbox>
-    <Grid Width="640" Height="480">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
+    
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation 
+                        Storyboard.TargetName="rect"
+                        Storyboard.TargetProperty="(FrameworkElement.Width)"
+                        From="200" To="100" Duration="0:0:1"
+                        RepeatBehavior="Forever"
+                        AutoReverse="True"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    
+    <Grid Background="#333333">
 
-            </Grid.ColumnDefinitions>
-        
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Style="{StaticResource ButtonGray}" Margin="0 0 0 10">Button 1</Button>
-            <Button Style="{StaticResource ButtonBlue}">ButtonBlue</Button>
-            <Button Style="{StaticResource ButtonDyn}">ButtonDyn</Button>
-            <Button Style="{StaticResource ButtonDyn}"
-                    Background="{StaticResource OrangeBrush}"
-                    local:Brushers.HoverBrush="{StaticResource OrangeHoverBrush}"
-                    local:Brushers.ActiveBrush="{StaticResource OrangeActiveBrush}">ByttonDyn orange</Button>
-            <Button Style="{StaticResource ButtonOrangeDyn}">ButtonOrangeDyn</Button>
+        <Viewbox>
+            <Grid Width="640" Height="480" Background="#11FFFFFF">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
 
-            </StackPanel>
-        <StackPanel Grid.Column="1"
+                </Grid.ColumnDefinitions>
+
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource ButtonGray}" Margin="0 0 0 10">Button 1</Button>
+                    <Button Style="{StaticResource ButtonBlue}">ButtonBlue</Button>
+                    <Button Style="{StaticResource ButtonDyn}">ButtonDyn</Button>
+                    <Button Style="{StaticResource ButtonDyn}"
+                        Background="{StaticResource OrangeBrush}"
+                        local:Brushers.HoverBrush="{StaticResource OrangeHoverBrush}"
+                        local:Brushers.ActiveBrush="{StaticResource OrangeActiveBrush}">ByttonDyn orange</Button>
+                    <Button Style="{StaticResource ButtonOrangeDyn}">ButtonOrangeDyn</Button>
+
+                </StackPanel>
+                <StackPanel Grid.Column="1"
                     VerticalAlignment="Center">
 
-                <Rectangle Width="200" Height="100">
-                    <Rectangle.Fill>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="Yellow" Offset="0.0" />
-                            <GradientStop Color="Red" Offset="0.25" />
-                            <GradientStop Color="Blue" Offset="0.75" />
-                            <GradientStop Color="LimeGreen" Offset="1.0" />
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
+                    <Rectangle Width="200" Height="100">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="Yellow" Offset="0.0" />
+                                <GradientStop Color="Red" Offset="0.25" />
+                                <GradientStop Color="Blue" Offset="0.75" />
+                                <GradientStop Color="LimeGreen" Offset="1.0" />
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
 
-                <Rectangle Width="200" Height="100" >
-                    <Rectangle.Fill>
+                    <Grid Height="100">
+                        <Rectangle x:Name="rect">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush x:Name="gradientbrush" StartPoint="0 0" EndPoint="0 1" MappingMode="RelativeToBoundingBox">
+                                    <GradientStop  Color="Black" Offset="0.5" />
+                                    <GradientStop  Color="White" Offset="0.5" />
 
-                        <LinearGradientBrush StartPoint="0.36,0" EndPoint="0.61,1">
-                            <GradientStop  Color="Black" Offset="0.5" />
-                            <GradientStop  Color="White" Offset="0.5" />
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
+                                    <GradientStop Color="Yellow" Offset="0.0" />
+                                    <GradientStop Color="Red" Offset="0.25" />
+                                    <GradientStop Color="Blue" Offset="0.75" />
+                                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
 
-                <DatePicker Style="{DynamicResource DatePickerStyle1}" Margin="0 10" />
-            
-                <DatePicker Margin="0 10" Style="{StaticResource DatePickerStyle}" />
-            </StackPanel>
-        </Grid>
-    </Viewbox>
+                            <b:Interaction.Behaviors>
+                                <local:RotateBrushBehavior Brush="{Binding ElementName=gradientbrush}"/>
+                            </b:Interaction.Behaviors>
+                        </Rectangle>
+                    </Grid>
+                    
+                    <DatePicker Style="{DynamicResource DatePickerStyle1}" Margin="0 10" />
+
+                    <DatePicker Margin="0 10" Style="{StaticResource DatePickerStyle}" />
+                </StackPanel>
+            </Grid>
+        </Viewbox>
+    </Grid>
 </Window>
