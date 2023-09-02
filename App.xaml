@@ -7,6 +7,9 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Palette.xaml" />
+                <ResourceDictionary Source="/ButtonStyles.xaml" />
+                <ResourceDictionary Source="/DatePickerStyles.xaml" />
+                <ResourceDictionary Source="/DatePickerBlend.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

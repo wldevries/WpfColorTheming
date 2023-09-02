@@ -20,6 +20,7 @@
     <Color x:Key="Gray500">#CCCCCC</Color>
     <Color x:Key="Gray400">#E5E5E5</Color>
     <Color x:Key="Gray300">#F2F2F2</Color>
+    <Color x:Key="Gray200">#F6F6F6</Color>
 
     <Color x:Key="Orange">#F37736</Color>
     <Color x:Key="OrangeHoverColor">#FF8545</Color>
@@ -46,6 +47,7 @@
     <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}" />
     <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}" />
     <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}" />
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}" />
 
     <SolidColorBrush x:Key="OrangeBrush" Color="{StaticResource Orange}" />
     <SolidColorBrush x:Key="OrangeHoverBrush" Color="{StaticResource OrangeHoverColor}" />
@@ -60,124 +62,4 @@
 
     <SolidColorBrush x:Key="TextBackground" Color="{StaticResource TextBackgroundColor}" />
     <SolidColorBrush x:Key="TextForeground" Color="{StaticResource TextForegroundColor}" />
-
-
-    <ControlTemplate TargetType="Button" x:Key="ButtonTemplate">
-        <Border x:Name="border"
-                CornerRadius="{TemplateBinding Border.CornerRadius}"
-                Background="{TemplateBinding Background}"
-                Padding="{TemplateBinding Padding}">
-            <ContentPresenter 
-                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-        </Border>
-    </ControlTemplate>
-
-
-    <Style TargetType="Button" x:Key="ButtonGray">
-        <Setter Property="Template" Value="{StaticResource ButtonTemplate}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Padding" Value="8 0" />
-        <Setter Property="MinHeight" Value="64" />
-        <Setter Property="Background" Value="{StaticResource LighterGrayBrush}" />
-        <Setter Property="Foreground" Value="{StaticResource BlueBrush}" />
-        <Setter Property="Border.CornerRadius" Value="4" />
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Opacity=".4" />
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource LighterGrayHoverBrush}" />
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource LighterGrayActiveBrush}" />
-                <Setter Property="Effect" Value="{x:Null}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-        
-    <Style TargetType="Button" x:Key="ButtonBlue">
-        <Setter Property="Template" Value="{StaticResource ButtonTemplate}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Padding" Value="8 0" />
-        <Setter Property="MinHeight" Value="64" />
-        <Setter Property="Background" Value="{StaticResource BlueBrush}" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Border.CornerRadius" Value="8" />
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Opacity=".4" />
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource BlueHoverBrush}" />
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{StaticResource BlueActiveBrush}" />
-                <Setter Property="Effect" Value="{x:Null}" />
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-
-    <ControlTemplate TargetType="Button" x:Key="ButtonDynTemplate">
-        <Border x:Name="border"
-                CornerRadius="{TemplateBinding Border.CornerRadius}"
-                Background="{TemplateBinding Background}"
-                Padding="{TemplateBinding Padding}">
-            <ContentPresenter 
-                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-        </Border>
-
-        <ControlTemplate.Triggers>
-            <!-- werkt niet helaas als property gezet wordt,bind aan style en niet aan control met Self? -->
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(local:Brushers.HoverBrush), RelativeSource={RelativeSource Self}}" />
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{Binding Path=(local:Brushers.ActiveBrush), RelativeSource={RelativeSource Self}}" />
-                <Setter Property="Effect" Value="{x:Null}" />
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <Style TargetType="Button" x:Key="ButtonDyn">
-        <Setter Property="Template" Value="{StaticResource ButtonDynTemplate}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Padding" Value="8 0" />
-        <Setter Property="MinHeight" Value="64" />
-        <Setter Property="Background" Value="{StaticResource BlueBrush}" />
-        <Setter Property="local:Brushers.HoverBrush" Value="{StaticResource BlueHoverBrush}" />
-        <Setter Property="local:Brushers.ActiveBrush" Value="{StaticResource BlueActiveBrush}" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Border.CornerRadius" Value="8" />
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Opacity=".4" />
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-
-    <Style TargetType="Button" x:Key="ButtonOrangeDyn">
-        <Setter Property="Template" Value="{StaticResource ButtonDynTemplate}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Padding" Value="8 0" />
-        <Setter Property="MinHeight" Value="64" />
-        <Setter Property="Background" Value="{StaticResource OrangeBrush}" />
-        <Setter Property="local:Brushers.HoverBrush" Value="{StaticResource OrangeHoverBrush}" />
-        <Setter Property="local:Brushers.ActiveBrush" Value="{StaticResource OrangeActiveBrush}" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="Border.CornerRadius" Value="8" />
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect BlurRadius="2" ShadowDepth="1" Opacity=".4" />
-            </Setter.Value>
-        </Setter>
-    </Style>
-
 </ResourceDictionary>

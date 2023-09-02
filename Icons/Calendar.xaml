@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<Viewbox xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Stretch="Uniform" Name="calendar_opt_xaml">
+    <Canvas UseLayoutRounding="False" Width="26.458" Height="26.458">
+        <Canvas.Clip>
+            <RectangleGeometry Rect="0.0,0.0,26.458,26.458"/>
+        </Canvas.Clip>
+        <Canvas UseLayoutRounding="False">
+            <Path Fill="#ff000000">
+                <Path.Data>
+                    <PathGeometry Figures="m 1.6536 14.056 v -12.402 h 4.9609 v -1.6536 h 1.6536 v 1.6536 h 9.9219 v -1.6536 h 1.6536 v 1.6536 h 4.9609 v 24.805 h -23.151 z m 21.497 -5.7878 h -19.844 v 16.536 h 19.844 z m -17.363 11.576 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 0 h 3.3073 v 3.3073 h -3.3073 z m -5.7878 -4.9609 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 0 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 0 h 3.3073 v 3.3073 h -3.3073 z m -11.576 -4.9609 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 0 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 0 h 3.3073 v 3.3073 h -3.3073 z m 5.7878 -6.6146 h -3.3073 v 1.6536 h -1.6536 v -1.6536 h -9.9219 v 1.6536 h -1.6536 v -1.6536 h -3.3073 v 3.3073 h 19.844 z" FillRule="Nonzero"/>
+                </Path.Data>
+            </Path>
+        </Canvas>
+    </Canvas>
+</Viewbox>

@@ -7,4 +7,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Page Remove="Icons\Calendar.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\Calendar.xaml" />
+  </ItemGroup>
+
 </Project>
