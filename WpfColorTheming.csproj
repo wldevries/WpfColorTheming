@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+	  <Resource Include="Images\*.png" />
+	  <Resource Include="Images\*.jpg" />
     <Resource Include="Icons\Calendar.xaml" />
   </ItemGroup>
 
