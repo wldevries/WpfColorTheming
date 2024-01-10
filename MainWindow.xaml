@@ -14,7 +14,7 @@
         <Grid Width="640" Height="480"
               Background="#333333">
             <local:BackgroundControl/>
-            <local:ControlHost/>
+            <!--<local:ControlHost/>-->
         </Grid>
     </Viewbox>
 </Window>

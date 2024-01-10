@@ -131,7 +131,7 @@
         <Rectangle x:Name="noisegrid">
             <Rectangle.Fill>
                 <ImageBrush x:Name="ib"
-                            ImageSource="/Images/noisy-background.jpg"
+                            ImageSource="/WpfColorTheming;component/Images/grain-overlay-png-8.png"
                             TileMode="FlipXY"
                             Viewport="0,0,4,4"
                             Opacity="0.5">
